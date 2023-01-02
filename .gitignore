@@ -1,5 +1,5 @@
 .DS_Store
 
-app/data/*.png
-app/data/*.jpeg
-app/data/*.JPG
+*.png
+*.jpeg
+*.JPG
