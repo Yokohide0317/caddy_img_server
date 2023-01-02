@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{html .Host}}</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="color-scheme" content="light dark">
+	</head>
+	<body>
+		<header>
+			<a href="/">{{html .Host}}</a>
+		</header>
+		<main>
+			{{- if eq "/" html .Name}}
+			<ul>
+				{{- range .Items}}
+				<li>
+					<a href="{{html .URL}}">/{{html .Name}}</a>
+				</li>
+				{{- end}}
+			</ul>
+			{{- else}}
+			<div>
+				{{- range .Items}}
+				<a href="{{html .URL}}">
+					<img src="{{html .URL}}">
+				</a>
+				{{- end}}
+			</div>
+			{{- end}}
+		</main>
+		<footer>
+			Served with <a rel="noopener noreferrer" href="https://caddyserver.com">Caddy</a>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,5 @@
+:8080
+root * /data
+file_server {
+	browse /usr/share/caddy/browse.html
+}

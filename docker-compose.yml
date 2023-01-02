@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  caddy_image_server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "2023:8080"
+      - "443:443"
+      - "443:443/udp"
+
+    volumes:
+      - $PWD/app/browse.html:/usr/share/caddy/browse.html
+      - $PWD/app/Caddyfile:/etc/caddy/Caddyfile
+      - $PWD/app/site:/srv
+      - $PWD/app/data:/data
+      - $PWD/app/config:/config
+
+volumes:
+  caddy_data:
+    external: true
+  caddy_config:
